@@ -1,6 +1,12 @@
+import Header from "./components/Header"
 
 export default function App() {
   return (
-    <h1>Here is the App component</h1>
+    <>
+    <Header text='Hello World'/>
+    <div className="container">
+      <h1>MY APP</h1>
+    </div>
+    </>
   )
 }
