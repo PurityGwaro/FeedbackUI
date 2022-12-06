@@ -142,7 +142,7 @@ input:focus {
 }
 
 .edit {
-  right: 40px;
+  right: 60px;
 }
 
 .btn {
@@ -227,4 +227,8 @@ input:focus {
   .input-group input {
     width: 80%;
   }
+}
+.btneditdelete:hover{
+  /* border: 1px dotted #ccc; */
+  background-color: #ccc;
 }
