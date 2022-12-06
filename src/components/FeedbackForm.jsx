@@ -8,7 +8,7 @@ import FeedbackContext from "../context/FeedbackContext";
 import { useEffect } from "react";
 
 function FeedbackForm() {
-  const { addFeedback,feedbackEdit } = useContext(FeedbackContext);
+  const { addFeedback,feedbackEdit,updateFeedback } = useContext(FeedbackContext);
 
   const [text, setText] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -37,8 +37,16 @@ function FeedbackForm() {
         text,
         rating,
       };
-      addFeedback(newFeedback);
-      setText("");
+      if(feedbackEdit.edit === true){
+        updateFeedback(feedbackEdit.item.id,newFeedback)
+        setText("");
+      setBtnDisabled(true);
+      }else{
+        addFeedback(newFeedback);
+        setText("");
+      setBtnDisabled(true);
+      }
+      
     }
   };
 
@@ -46,6 +54,7 @@ function FeedbackForm() {
     if(feedbackEdit.edit === true){
       setBtnDisabled(false)
       setText(feedbackEdit.item.text)
+      setRating(feedbackEdit.item.rating)
     }
   },[feedbackEdit])
 
